@@ -3,14 +3,14 @@ class Product {
   final String name;
   final String description;
   final double price;
-  final String sellerName; // Assuming this field is added
+  final String sellerName;
 
   Product({
     required this.id,
     required this.name,
     required this.description,
     required this.price,
-    required this.sellerName, // Initialize in constructor
+    required this.sellerName,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {

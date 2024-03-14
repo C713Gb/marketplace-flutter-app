@@ -145,20 +145,18 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   }
 
   void _purchaseProduct() async {
-    // Assuming you have a method in your BidService to handle the purchase
     String? token = await _authService.getToken();
     if (token != null && latestBid != null) {
       final isSuccess = await _bidService.purchaseProduct(latestBid!.id, token);
 
       if (isSuccess) {
         setState(() {
-          productPurchased = true; // Update flag on successful purchase
+          productPurchased = true;
         });
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Product purchased successfully!")),
         );
       } else {
-        // Handle failed purchase (e.g., show error message)
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
               content: Text("Failed to purchase product. Please try again.")),

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import '../models/user.dart'; // Your User model
+import '../models/user.dart';
 
 class UserService {
   final String _baseUrl = dotenv.env['API_URL'] ?? "http://127.0.0.1:8000";
