@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/product.dart';
+import '../screens/product_details_screen.dart'; // Make sure to import ProductDetailsScreen
 
 class ProductTitle extends StatelessWidget {
   final Product product;
@@ -8,10 +9,19 @@ class ProductTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(product.name),
-      subtitle: Text(product.description),
-      trailing: Text('\$${product.price}'),
+    return InkWell(
+      onTap: () {
+        // Navigate to ProductDetailsScreen on tap
+        Navigator.of(context).push(
+          MaterialPageRoute(
+              builder: (context) => ProductDetailsScreen(product: product)),
+        );
+      },
+      child: ListTile(
+        title: Text(product.name),
+        subtitle: Text(product.description),
+        trailing: Text('\$${product.price}'),
+      ),
     );
   }
 }
